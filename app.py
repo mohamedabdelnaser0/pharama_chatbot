@@ -1,3 +1,4 @@
+%%writefile app.py
 
 import streamlit as st
 import pandas as pd
@@ -18,10 +19,16 @@ st.set_page_config(
 # Load Dataset
 # ==========================
 
+# ==========================
+# Load Dataset
+# ==========================
+
 @st.cache_data
 def load_data():
 
-    df = pd.read_csv("medicines.csv")
+    url = "https://huggingface.co/mohamed22264/medical_data/resolve/main/medicines.csv"
+
+    df = pd.read_csv(url)
 
     df.columns = df.columns.str.strip()
 
